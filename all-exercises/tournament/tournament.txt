@@ -1,0 +1,12 @@
+RB Leipzig;AS Monaco;draw
+FC Porto;Besiktas JK;loss
+Besiktas JK;RB Leipzig;win
+AS Monaco;FC Porto;loss
+AS Monaco;Besiktas JK;loss
+RB Leipzig;FC Porto;win
+Besiktas JK;AS Monaco;draw
+FC Porto;RB Leipzig;win
+Besiktas JK;FC Porto;draw
+AS Monaco;RB Leipzig;loss
+FC Porto;AS Monaco;win
+RB Leipzig;Besiktas JK;loss
