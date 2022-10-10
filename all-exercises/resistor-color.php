@@ -34,6 +34,12 @@ See: http://en.wikipedia.org/wiki/Electronic_color_code
 
 # Resistor Color (Türkçesi: Direnç Rengi)
 
+// Definition and Usage 
+// (Türkçesi: Tanım ve Kullanım)
+
+// The array() function creates an array.
+// (Türkçesi: array() fonksiyonu bir dizi oluşturur.)
+
 function colorCode($color) {
     $colors = array(
         "black" => 0,

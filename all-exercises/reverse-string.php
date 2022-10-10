@@ -14,6 +14,12 @@ echo "<br><br>";
 
 # Reverse a string (Türkçesi: bir dizeyi ters çevirin) [2.Yöntem]
 
+// Definition and Usage 
+// (Türkçesi: Tanım ve Kullanım)
+
+// The strrev() function reverses a string.
+// (Türkçesi: strrev() fonksiyonu bir dizenin tersini alır.)
+
 function re($a) {
     return strrev ($a);
 }

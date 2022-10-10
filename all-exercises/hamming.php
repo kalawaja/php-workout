@@ -3,11 +3,11 @@
 Calculate the Hamming Distance between two DNA strands. 
 (Türkçesi: Hamming Mesafesi)
 
- If we compare two strands of DNA and count the differences between them we can see how many mistakes occurred. 
- (Türkçesi: Eğer iki DNA zincirini karşılaştırırsak ve farklılıklarını sayarsak kaç hata olduğunu görebiliriz.) 
+If we compare two strands of DNA and count the differences between them we can see how many mistakes occurred. 
+(Türkçesi: Eğer iki DNA zincirini karşılaştırırsak ve farklılıklarını sayarsak kaç hata olduğunu görebiliriz.) 
  
- This is known as the "Hamming Distance". 
- (Türkçesi: Bu "Hamming Mesafesi" olarak bilinir.)
+This is known as the "Hamming Distance". 
+(Türkçesi: Bu "Hamming Mesafesi" olarak bilinir.)
 
 We read DNA using the letters C,A,G and T. 
 (Türkçesi: DNA'yı C,A,G ve T harfleriyle okuruz.)

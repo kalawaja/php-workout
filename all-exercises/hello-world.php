@@ -1,7 +1,7 @@
 
 <?php
 
-# Hello World (Türkçesi: Merhaba Dünya)
+# Write Hello World (Türkçesi: Merhaba Dünya Yaz)
 
 function helloWorld() {
     return "Hello World!";
