@@ -17,3 +17,6 @@ var_dump((bool) "false");   // bool(true)
 var_dump((bool) -1);        // bool(true)
 var_dump((bool) 0);         // bool(false)
 ?>
+
+# Type casting to bool (From booleans)
+False will yield 0 (zero), and true will yield 1 (one).
