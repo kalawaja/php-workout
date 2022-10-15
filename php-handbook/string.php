@@ -37,11 +37,11 @@ echo 'This will not expand: \n a newline';
 // Outputs: Variables do not $expand $either
 echo 'Variables do not $expand $either';
 ?>
-
+<!--
 # Double quoted
 If the string is enclosed in double-quotes ("), PHP will interpret the following escape sequences for special characters:
-    <strong>Escaped characters</strong>
-<em>Sequence</em>	<em>Meaning</em>
+    Escaped characters
+Sequence	        Meaning
 \n	                linefeed
 \r	                carriage return
 \t	                horizontal tab
@@ -54,7 +54,7 @@ If the string is enclosed in double-quotes ("), PHP will interpret the following
 
 # Simple syntax
 If a dollar sign ($) is encountered, the parser will greedily take as many tokens as possible to form a valid variable name. Enclose the variable name in curly braces to explicitly specify the end of the name.
-
+-->
 <?php
 $juice = "apple";
 
