@@ -1,40 +1,50 @@
 
+//======================================================================
+// PHP SUPPORTS 10 PRIMITIVE TYPES.
+//======================================================================
+
+//----------------------------------------------------------------------
+// Four scalar types:
+//----------------------------------------------------------------------
+
+1. bool (boolean)
+2. int (integer)
+3. float (floating-point number)
+4. string
+
+//----------------------------------------------------------------------
+// Four compound types:
+//----------------------------------------------------------------------
+
+1. array
+2. object
+3. callable
+4. iterable
+
+//----------------------------------------------------------------------
+// And finally two special types:
+//----------------------------------------------------------------------
+
+1. resource (external resources)
+2. NULL (no value)
+
 <?php
+$a_bool = TRUE;   // a boolean
+$a_str  = "foo";  // a string
+$a_str2 = 'foo';  // a string
+$an_int = 12;     // an integer
 
-// PHP has the following types:
-/*
- * `bool` boolean values (true/false)
- * int integer numbers (no decimals)
- * float floating-point numbers (decimals)
- * string strings
- * array arrays
- * object objects
- * null a value that means “no value assigned”
- */
+echo gettype($a_bool); // prints out:  boolean
+echo gettype($a_str);  // prints out:  string
 
- // `bool` boolean values (true/false)
-    $isTrue = true;
-    $isFalse = false;
+// If this is an integer, increment it by four
+if (is_int($an_int)) {
+    $an_int += 4;
+}
 
-// int integer numbers (no decimals)
-    $int = 23;
-
-// float floating-point numbers (decimals)
-    $float = 23.5;
-
-// string strings
-    $string = "Hello World";
-
-// array arrays
-    $array = array("apple", "strawberry", "banana");
-
-// object objects
-    class Car {
-        function Car() {
-            $this->model = "VW";
-        }
-    }
-    $car = new Car();
-
-// null a value that means “no value assigned”
-    $null = null;
+// If $a_bool is a string, print it out
+// (does not print out anything)
+if (is_string($a_bool)) {
+    echo "String: $a_bool";
+}
+?>
