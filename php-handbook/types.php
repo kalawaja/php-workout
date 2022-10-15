@@ -48,3 +48,5 @@ if (is_string($a_bool)) {
     echo "String: $a_bool";
 }
 ?>
+
+Note: To check the type and value of an expression, use the var_dump() function.
