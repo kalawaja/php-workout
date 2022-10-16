@@ -132,7 +132,7 @@ var_dump($secondElement);
 # Creating/modifying with square bracket syntax
 An existing array can be modified by explicitly setting values in it.
 
-This is done by assigning values to the array, specifying the key in brackets. The key can also be omitted, resulting in an empty pair of brackets ([]) ;
+# This is done by assigning values to the array, specifying the key in brackets. The key can also be omitted, resulting in an empty pair of brackets ([]) ;
 
 <?php
 $arr["key"] = "value";
@@ -161,6 +161,7 @@ unset($arr);    // This deletes the whole array
 ?>
 
 # Important Examples : Great examples to learn better ;
+
 <?php
 // Create a simple array.
 $array = array(1, 2, 3, 4, 5);
@@ -187,8 +188,211 @@ print_r($array);
 ?>
 
 # Array destructuring 
+# Arrays can be destructured using the [] or list() language constructs. These constructs can be used to destructure an array into distinct variables ;
 
-<!-- √√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√
-,,, I stopped here. .........................................
-I will continue later. ......................................
-√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√√--> 
+<?php
+$source_array = ['foo', 'bar', 'baz'];
+
+[$foo, $bar, $baz] = $source_array;
+
+echo $foo;
+# Output: foo
+echo $bar;
+# Output: bar
+echo $baz;
+# Output: baz
+?>
+
+# Array destructuring can be used in foreach to destructure a multi-dimensional array while iterating over it ;
+
+<?php
+$source_array = [
+    [1, 'John'],
+    [2, 'Jane'],
+];
+
+foreach ($source_array as [$id, $name]) {
+    // logic here with $id and $name
+}
+unset($id, $name);
+var_dump($id, $name);
+# Output: Warning: Undefined variable $id in /path/to/file.php on line ...
+# Output: Warning: Undefined variable $name in /path/to/file.php on line ...
+?>
+
+# Array elements will be ignored if the variable is not provided. Array destructuring always starts at index 0 ;
+
+<?php
+$source_array = ['foo', 'bar', 'baz'];
+
+// Assign the element at index 2 to the variable $baz
+[, , $baz] = $source_array;
+
+echo $baz;
+# Output: baz
+?>
+
+# As of PHP 7.1.0, associative arrays can be destructured too. This also allows for easier selection of the right element in numerically indexed arrays as the index can be explicitly specified ;
+
+<?php
+$source_array = ['foo' => 1, 'bar' => 2, 'baz' => 3];
+
+// Assign the element at index 'baz' to the variable $three
+['baz' => $three] = $source_array;
+
+echo $three;
+# Output: 3
+
+$source_array = ['foo', 'bar', 'baz'];
+
+// Assign the element at index 2 to the variable $baz
+[2 => $baz] = $source_array;
+
+echo $baz;
+# Output: baz
+?>
+
+# Array destructuring can be used for easy swapping of two variables ;
+
+<?php
+$a = 1;
+$b = 2;
+
+[$b, $a] = [$a, $b];
+
+echo $a;
+# Output: 2
+echo $b;
+# Output: 1
+?>
+
+# Note: The unset() function allows removing keys from an array. Be aware that the array will not be reindexed. If a true "remove and shift" behavior is desired, the array can be reindexed using the array_values() function.
+
+<?php
+$a = array(1 => 'one', 2 => 'two', 3 => 'three');
+unset($a[2]);
+var_dump($a);
+# Output: array(2) { [1]=> string(3) "one" [3]=> string(5) "three" }
+// Important Note: The array is not reindexed, so the key 2 is still present with a NULL value. 
+
+$b = array_values($a);
+var_dump($b);
+# Output: array(2) { [0]=> string(3) "one" [1]=> string(5) "three" }
+// Important Note: Now $b is array(0 => 'one', 1 =>'three')
+?>
+
+# The foreach control structure exists specifically for arrays. It provides an easy way to traverse an array.
+
+# Array do's and don'ts
+# Why is $foo[bar] wrong?
+Always use quotes around a string literal array index. For example, $foo['bar'] is correct, while $foo[bar] is not. But why? It is common to encounter this kind of syntax in old scripts:
+
+<?php
+// $foo[bar] = 'enemy';
+// echo $foo[bar];
+?>
+
+# Important Note: This is wrong, but it works. The reason is that this code has an undefined constant (bar) rather than a string ('bar' - notice the quotes). It works because PHP automatically converts a bare string (an unquoted string which does not correspond to any known symbol) into a string which contains the bare string. For instance, if there is no defined constant named bar, then PHP will substitute in the string 'bar' and use that.
+
+# Note: This does not mean to always quote the key. Do not quote keys which are constants or variables, as this will prevent PHP from interpreting them.
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', true);
+ini_set('html_errors', false);
+// Simple array:
+$array = array(1, 2);
+$count = count($array);
+for ($i = 0; $i < $count; $i++) {
+    echo "\nChecking $i: \n";
+    echo "Bad: " . $array['$i'] . "\n";
+    echo "Good: " . $array[$i] . "\n";
+    echo "Bad: {$array['$i']}\n";
+    echo "Good: {$array[$i]}\n";
+}
+
+/* Output: 
+
+Checking 0: 
+Notice: Undefined index:  $i in ...
+Bad: 
+Good: 1
+Notice: Undefined index:  $i in ...
+Bad: 
+Good: 1
+
+Checking 1: 
+Notice: Undefined index:  $i in ...
+Bad: 
+Good: 2
+Notice: Undefined index:  $i in ...
+Bad: 
+Good: 2
+*/
+?>
+
+# Important Result: To reiterate, inside a double-quoted string, it's valid to not surround array indexes with quotes so "$foo[bar]" is valid.
+For any of the types int, float, string, bool and resource, converting a value to an array results in an array with a single element with index zero and the value of the scalar which was converted. 
+// Important: In other words, (array)$scalarValue is exactly the same as array($scalarValue).
+
+# Note: Converting null to an array results in an empty array.
+
+<?php
+$array = (array) null;
+var_dump($array);
+# Output: array(0) { }
+?>
+
+# It is possible to compare arrays with the array_diff() function and with array operators.
+
+<?php
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+var_dump($result);
+# Output: array(1) { [0]=> string(4) "blue" }
+?>
+
+# Array unpacking
+An array prefixed by ... will be expanded in place during the definition of the array. 
+It's possible to expand multiple times, and add normal elements before or after the ... operator:
+
+<?php
+// Using short array syntax.
+// Also, works with array() syntax.
+$arr1 = [1, 2, 3];
+$arr2 = [...$arr1]; //[1, 2, 3]
+$arr3 = [0, ...$arr1]; //[0, 1, 2, 3]
+$arr4 = [...$arr1, ...$arr2, 111]; //[1, 2, 3, 1, 2, 3, 111]
+$arr5 = [...$arr1, ...$arr1]; //[1, 2, 3, 1, 2, 3]
+
+function getArr() {
+  return ['a', 'b'];
+}
+$arr6 = [...getArr(), 'c' => 'd']; //['a', 'b', 'c' => 'd']
+?>
+
+# Note: Unpacking an array with the ... operator follows the semantics of the array_merge() function. That is, later string keys overwrite earlier ones and integer keys are renumbered ;
+
+<?php
+// string key
+$arr1 = ["a" => 1];
+$arr2 = ["a" => 2];
+$arr3 = ["a" => 0, ...$arr1, ...$arr2];
+var_dump($arr3); // ["a" => 2]
+
+// integer key
+$arr4 = [1, 2, 3];
+$arr5 = [4, 5, 6];
+$arr6 = [...$arr4, ...$arr5];
+var_dump($arr6); // [1, 2, 3, 4, 5, 6]
+// Which is [0 => 1, 1 => 2, 2 => 3, 3 => 4, 4 => 5, 5 => 6]
+// where the original integer keys have not been retained.
+?>
+
+(For all examples see: https://www.php.net/manual/en/language.types.array.php#language.types.array.foo-bar)
+
+
+
+
+
