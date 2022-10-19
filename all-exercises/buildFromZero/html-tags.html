@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Tags</title>
+</head>
+<body>
+    <h1>h1 Head Tag</h1> <!-- Max -->
+    <h2>h2 Head Tag</h2>
+    <h3>h3 Head Tag</h3>
+    <h4>h4 Head Tag</h4>
+    <h5>h5 Head Tag</h5>
+    <h6>h6 Head Tag</h6> <!-- Min --> 
+    <p>Lorem</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste distinctio nisi amet minus. Aspernatur earum inventore quae itaque voluptas tempore ipsam rerum, modi quam ab? Obcaecati vel unde exercitationem suscipit?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <br> Incidunt repellat, quaerat laboriosam cumque harum dolorum optio tempore maxime quam laudantium repudiandae explicabo accusantium eius eos est magni vitae expedita quod?</p>
+    <hr>
+    <p><b>Lorem ipsum</b> dolor sit amet <strong>consectetur</strong> adipisicing elit. Autem <i>illum</i> laborum veritatis blanditiis pariatur magnam <em>culpa</em> iusto architecto iure? Error cupiditate doloremque dolores laudantium corrupti illum tempora ipsam exercitationem placeat?</p>
+    <p>Subscript 5<sub>2</sub></p>
+    <p>Superscript 5<sup>2</sup></p>
+    <p><ins>Underline Inserted Text</ins></p>
+    <p><del>Deleted Text Element</del></p>
+    <!--Unordered List-->
+    <ul>
+        <li>List 1</li>
+        <li>List 2</li>
+        <li>List 3</li>
+        <li>List 4</li>
+    </ul>
+    <!--Ordered List-->
+    <ol>
+        <li>List 1</li>
+        <li>List 2</li>
+        <li>List 3</li>
+        <li>List 4</li>
+    </ol>
+    <a href="https://www.php.net/">PHP Web Site</a>
+    <img src="https://www.php.net//images/logos/new-php-logo.svg" alt="PHP logo" height="100px" width="200px">
+    <!--target; _blank | _parent | _self | _top | framename-->
+    <a href="https://www.php.net/" target="_blank"><img src="https://www.php.net/images/logos/php-logo-bigger.png" alt="PHP Alternative logo" height="100px" width="200px"></a>
+    <br><br>
+    <table border="1" align="center">
+        <tr>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>University</th>
+        </tr>
+        <tr>
+            <td>Ramazan ilter</td>
+            <td>32</td>
+            <td>Istanbul University</td>
+        </tr>
+        <tr>
+            <td>Yusuf Celik</td>
+            <td>25</td>
+            <td>Yildiz Technical University</td>
+        </tr>
+        <tr>
+            <td>Hamza ilter</td>
+            <td>21</td>
+            <td>Bogazici University</td>
+        </tr>
+    </table>
+    <br>
+    <iframe src="https://laracasts.com/" frameborder="1">PHP Web Site</iframe>
+    <br>
+    <!--Embed video, audio, HTML page and image with embed tag.-->
+    <embed src="https://www.php.net/images/logos/php-med-trans.png" type="image/png">
+    <!-- The HTML <svg> element is a container for SVG graphics. -->
+    <ul>
+        <li>Rectangle <rect> </li>
+        <li>Circle <circle> </li>
+        <li>Ellipse <ellipse> </li>
+        <li>Line <line> </li>
+        <li>Polyline <polyline> </li>
+        <li>Polygon <polygon> </li>
+        <li>Path <path> </li>
+    </ul>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="30" stroke="blue" stroke-width="20" fill="black"></circle>
+        <circle cx="50" cy="50" r="10" stroke="white" stroke-width="5" fill="black"></circle>
+    </svg>
+    <br>
+    <canvas id="canva"></canvas>
+    <script>
+        var canvas = document.getElementById("canva");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(10, 10, 100, 100);
+        ctx.fillStyle = "blue";
+        ctx.fillRect(20, 20, 100, 100);
+        ctx.fillStyle = "green";
+        ctx.fillRect(30, 30, 100, 100);
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(40, 40, 100, 100);
+        ctx.fillStyle = "black";
+        ctx.fillRect(50, 50, 100, 100);
+    </script>
+    <br>
+</body>
+</html>
