@@ -35,7 +35,7 @@
     </ol>
     <a href="https://www.php.net/">PHP Web Site</a>
     <img src="https://www.php.net//images/logos/new-php-logo.svg" alt="PHP logo" height="100px" width="200px">
-    <!--target; _blank | _parent | _self | _top | framename-->
+    <!-- (a) target; _blank | _parent | _self | _top | framename-->
     <a href="https://www.php.net/" target="_blank"><img src="https://www.php.net/images/logos/php-logo-bigger.png" alt="PHP Alternative logo" height="100px" width="200px"></a>
     <br><br>
     <table border="1" align="center">
@@ -96,10 +96,10 @@
         ctx.fillRect(50, 50, 100, 100);
     </script>
     <br>
-    <!-- Form -->
-    <form action="process.php" method="post">
+    <!-- Form (with enctype)-->
+    <form action="process.php" method="post" enctype="multipart/form-data" target="_blank" autocomplete="on">
         <input type="hidden" name="id">
-        <input type="text" name="fullname" placeholder="Full Name" required>
+        <input type="text" name="fullname" readonly value="Ramazan ilter" required>
         <select name="" id="">
             <option value="Gender">Man</option>
             <option value="Gender">Woman</option>
@@ -107,12 +107,12 @@
         <br>
         <input type="number" name="age" id="" placeholder="Age">
         <br>
-        <input type="email" name="email" id="" placeholder="E-Mail Address" required>
+        <input type="email" name="email" id="" readonly value="remzilter@gmail.com">
         <br>
-        <input type="password" name="password" id="" placeholder="Password" required>
+        <input type="password" name="password" id="" placeholder="Password" required autocomplete="off">
         <br>
         <label for="my-photo">Choose Your Photo: </label>
-        <input type="file" name="my-photo" id="">
+        <input type="file" name="my-photo" id="" multiple>
         <p>Skills</p>
         <input type="checkbox" name="">PHP
         <input type="checkbox" name="">Bootstrap
@@ -124,6 +124,14 @@
         <input type="radio" name="points">3
         <input type="radio" name="points">2
         <input type="radio" name="points">1
+        <br><br>
+        <input list="course" placeholder="Choose Course">
+        <datalist id="course">
+            <option value="PHP">
+            <option value="Bootstrap">
+            <option value="JavaScript">
+            <option value="JQuery">
+        </datalist>
         <p>Select Appointment Day: </p>
         <input type="date" name="" id="" min="2022-11-01" max="2022-12-31" required>
         <p>Message</p>
