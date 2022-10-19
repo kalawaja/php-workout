@@ -77,7 +77,7 @@
     </ul>
     <svg width="100" height="100">
         <circle cx="50" cy="50" r="30" stroke="blue" stroke-width="20" fill="black"></circle>
-        <circle cx="50" cy="50" r="10" stroke="white" stroke-width="5" fill="black"></circle>
+        <circle cx="50" cy="50" r="10" stroke="yellow" stroke-width="5" fill="black"></circle>
     </svg>
     <br>
     <canvas id="canva"></canvas>
@@ -96,5 +96,43 @@
         ctx.fillRect(50, 50, 100, 100);
     </script>
     <br>
+    <!-- Form -->
+    <form action="process.php" method="post">
+        <input type="hidden" name="id">
+        <input type="text" name="fullname" placeholder="Full Name" required>
+        <select name="" id="">
+            <option value="Gender">Man</option>
+            <option value="Gender">Woman</option>
+        </select>
+        <br>
+        <input type="number" name="age" id="" placeholder="Age">
+        <br>
+        <input type="email" name="email" id="" placeholder="E-Mail Address" required>
+        <br>
+        <input type="password" name="password" id="" placeholder="Password" required>
+        <br>
+        <label for="my-photo">Choose Your Photo: </label>
+        <input type="file" name="my-photo" id="">
+        <p>Skills</p>
+        <input type="checkbox" name="">PHP
+        <input type="checkbox" name="">Bootstrap
+        <input type="checkbox" name="">JavaScript
+        <input type="checkbox" name="">JQuery
+        <p>Points</p>
+        <input type="radio" name="points">5
+        <input type="radio" name="points">4
+        <input type="radio" name="points">3
+        <input type="radio" name="points">2
+        <input type="radio" name="points">1
+        <p>Select Appointment Day: </p>
+        <input type="date" name="" id="" min="2022-11-01" max="2022-12-31" required>
+        <p>Message</p>
+        <textarea name="message" id="" cols="35" rows="5"></textarea>
+        <br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Send">
+    </form>
+    <br>
+
 </body>
 </html>
