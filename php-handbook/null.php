@@ -70,3 +70,45 @@ unset($bar['quux']);
 // destroy more than one variable
 unset($foo1, $foo2, $foo3);
 ?>
+
+<?php
+// PHP Null Data Type - Full PHP 8 Tutorial 10/105
+
+// NULL
+// null constant
+
+$x=null;
+echo $x;
+var_dump($x);               //NULL
+var_dump(is_null($x));      //bool(true)
+
+$y=123;
+var_dump(is_null($y));      //bool(false)
+
+$z=123;
+var_dump($z===null);        //bool(false)
+
+$t=null;
+var_dump($t===null);        //bool(true)
+
+$u=123;
+var_dump($u);        //int(123)
+unset($u);           //Unset a given variable
+/* 
+unset() 
+destroys the specified variables. 
+*/
+var_dump($u);        //(Warning:...) NULL
+
+$v=null;
+var_dump((string) $v);        //string(0) ""
+
+$vv=null;
+var_dump((int) $vv);        //int(0)
+
+$vvv=null;
+var_dump((bool) $vvv);        //bool(false)
+
+$vvvv=null;
+var_dump((array) $vvvv);        //array(0){}
+?>
