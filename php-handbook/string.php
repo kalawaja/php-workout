@@ -163,3 +163,92 @@ $str[strlen($str)-1] = 'e';
 echo $str;
 # Output: Look at the see
 ?>
+
+<?php
+# PHP String Data Type - Heredoc & Nowdoc Syntax 9/105
+
+$firstName='Will';
+$fullName="$firstName Smith";
+echo $firstName. "\n";          //Will
+echo $fullName. "\n";           //Will Smith
+
+$name='Will';
+$fname="${name} Smith";
+echo $name. "\n";               //Will
+echo $fname. "\n";              //Will Smith
+
+$_name='Will';
+$_fname="{$_name} Smith";
+echo $_name. "\n";              //Will
+echo $_fname. "\n";             //Will Smith
+
+$finame='Will';
+$laname='Smith';
+$filaname=$finame.' '.$laname;
+echo $filaname."\n";            //Will Smith
+echo $filaname[0]."\n";         //W
+echo $filaname[1]."\n";         //i
+echo $filaname[-1]."\n";        //h
+echo $filaname[-2]."\n";        //t
+
+$filaname[1]='I';
+$filaname[-3]='I';
+echo $filaname."\n";            //WIll SmIth
+var_dump($filaname);            //string(10) "WIll SmIth"
+
+$filaname[15]='I';
+echo $filaname."\n";     //WIll SmIth     I
+var_dump($filaname);     //string(16) "WIll SmIth     I"
+echo "\n";
+
+$x=1;
+$y=2;
+
+// Heredoc
+$text = <<<TEXT
+Line 1 $x
+Line 2 $y
+Line 3 ' "
+TEXT;
+
+echo $text;          //echo nl2br($text);
+echo "\n";
+
+// Nowdoc
+$text = <<<'TEXT'
+Line 1 $x
+Line 2 $y
+Line 3 ' "
+TEXT;
+
+echo $text;
+echo "\n";
+
+// Heredoc ...
+$str = <<<TEXT
+<div>
+    <p>Hello</p>
+    <p>World</p>
+</div>
+TEXT;
+
+echo $stri;
+echo "\n";
+
+// Heredoc ...
+$stri = <<<TEXT
+Hello World
+TEXT;
+
+var_dump($stri);        //string(11) "Hello World"
+echo $stri;             //Hello World
+echo "\n";
+
+// Heredoc ...
+$stri = <<<TEXT
+    Hello World
+TEXT;
+
+var_dump($stri);        //string(15) "    Hello World"
+echo $stri;             //    Hello World
+?>
