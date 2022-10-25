@@ -393,6 +393,314 @@ var_dump($arr6); // [1, 2, 3, 4, 5, 6]
 (For all examples see: https://www.php.net/manual/en/language.types.array.php#language.types.array.foo-bar)
 
 
+<?php
+// PHP Array Data Type - Indexed, Associative & Multi-Dimensional Arrays - Full PHP 8 Tutorial 11/105
 
+/*
+$name='Gio';
+echo $name[1];        //i
+echo $name[-1];       //o
+*/
 
+/*
+$programmingLanguage1='PHP';
+$programmingLanguage2='Java';
+$programmingLanguage3='Python';
+*/
 
+//$programmingLanguages=array('PHP','Java','Python');
+$programmingLanguages=['PHP','Java','Python'];
+echo $programmingLanguages[1];            //Java
+//echo $programmingLanguages[-1];         //Warning:...
+//echo $programmingLanguages[3];          //Warning:...
+var_dump(isset($programmingLanguages[0]));   //bool(true)
+var_dump(isset($programmingLanguages[3]));   //bool(false)
+
+$cars=['BMW', 'Jaguar', 'Audi', 'Ferrari'];
+$cars[1]='Mercedes';
+echo $cars[1];          //Mercedes
+var_dump($cars);
+/*
+Mercedesarray(4) {
+  [0]=>
+  string(3) "BMW"
+  [1]=>
+  string(8) "Mercedes"
+  [2]=>
+  string(4) "Audi"
+  [3]=>
+  string(7) "Ferrari"
+}
+*/
+print_r($cars);
+/*
+Array
+(
+    [0] => BMW
+    [1] => Mercedes
+    [2] => Audi
+    [3] => Ferrari
+)
+*/
+echo '<pre>';
+print_r($cars);
+echo '</pre>';
+/*
+Array
+(
+    [0] => BMW
+    [1] => Mercedes
+    [2] => Audi
+    [3] => Ferrari
+)
+*/
+echo count($cars);          //4
+
+$num=['1', '2', '3'];
+$num[]='4';
+print_r($num);
+/*
+Array
+(
+    [0] => 1
+    [1] => 2
+    [2] => 3
+    [3] => 4
+)
+*/
+array_push($num, '5', '6', '7');
+print_r($num);
+/*
+Array
+(
+    [0] => 1
+    [1] => 2
+    [2] => 3
+    [3] => 4
+    [4] => 5
+    [5] => 6
+    [6] => 7
+)
+*/
+
+$progLangs=[
+    'php'=>'8.0',
+    'python'=>'3.9'
+];
+echo '<pre>';
+print_r($progLangs);
+echo '</pre>';
+/*
+Array
+(
+    [php] => 8.0
+    [python] => 3.9
+)
+*/
+echo $progLangs['php'];     //8.0
+$progLangs['go']='1.15';
+echo '<pre>';
+print_r($progLangs);
+echo '</pre>';
+/*
+Array
+(
+    [php] => 8.0
+    [python] => 3.9
+    [go] => 1.15
+)
+*/
+
+$letters=[
+    'a'=>'A',
+    'b'=>'B'
+];
+$newLetter='c';
+$letters[$newLetter]='C';
+echo '<pre>';
+print_r($letters);
+echo '</pre>';
+/*
+Array
+(
+    [a] => A
+    [b] => B
+    [c] => C
+)
+*/
+
+$twoLangs = [
+    'php'=>[
+        'creator'=>'Rasmus Lerdorf',
+        'extension'=>'.php',
+        'website'=>'www.php.net',
+        'isOpenSource'=>'true',
+        'versions'=>[
+            ['version'=>8, 'releaseDate'=>'Nov 26, 2020'],
+            ['version'=>7.4, 'releaseDate'=>'Nov 28, 2019'],
+        ],
+    ],
+    'python'=>[
+        'creator'=>'Guido Van Rossum',
+        'extension'=>'.py',
+        'website'=>'www.python.org',
+        'isOpenSource'=>'true',
+        'versions'=>[
+            ['version'=>3.9, 'releaseDate'=>'Oct 5, 2020'],
+            ['version'=>3.8, 'releaseDate'=>'Oct 14, 2019'],
+        ],
+    ],
+];
+//print_r($twoLangs);
+echo $twoLangs['php']['website'];       //www.php.net
+echo $twoLangs['php']['versions'][0]['releaseDate'];    //Nov 26, 2020
+
+$array=[0=>'foo', 1=>'bar', '1'=>'baz'];
+print_r($array);
+/*
+# important output;
+Array
+(
+    [0] => foo
+    [1] => baz
+)
+*/
+
+$testo=[true=>'a', 1=>'b', '1'=>'c', 1.8=>'d'];
+print_r($testo);
+/*
+# important output:
+Array
+(
+    [1] => d
+)
+*/
+
+$testom=[true=>'a', 1=>'b', '1'=>'c', 1.8=>'d', null=>'e'];
+print_r($testom);
+/*
+# important output:
+Array
+(
+    [1] => d
+    [] => e
+)
+*/
+echo $testo[null];      //e
+
+$aray=['a', 'b', 50=>'c', 'd', 'e'];
+print_r($aray);
+/*
+# important output;
+Array
+(
+    [0] => a
+    [1] => b
+    [50] => c
+    [51] => d
+    [52] => e
+)
+*/
+echo array_pop($aray);          //e
+print_r($aray);
+/*
+# important output;
+Array
+(
+    [0] => a
+    [1] => b
+    [50] => c
+    [51] => d
+)
+*/
+
+$alay=['a', 'b', 50=>'c', 'd', 'e'];
+echo array_shift($alay);            //a
+print_r($alay);
+/*
+# important output;
+Array
+(
+    [0] => b
+    [1] => c
+    [2] => d
+    [3] => e
+)
+*/
+
+$amay=['a', 'b', 50=>'c', 'd', 'foo'=>'e'];
+echo array_shift($amay);            //a
+print_r($amay);
+/*
+# important output;
+Array
+(
+    [0] => b
+    [1] => c
+    [2] => d
+    [foo] => e
+)
+*/
+
+$anay=['a', 'b', 50=>'c', 'd', 'foo'=>'e'];
+unset($anay);
+print_r($anay);             //Warning:...
+
+$apay=['a', 'b', 50=>'c', 'd', 'foo'=>'e'];
+unset($apay[50]);
+print_r($apay);
+/*
+# important output;
+Array
+(
+    [0] => a
+    [1] => b
+    [51] => d
+    [foo] => e
+)
+*/
+
+$asay=['a', 'b', 50=>'c', 'd', 'foo'=>'e'];
+unset($asay[50], $asay[1]);
+print_r($asay);
+/*
+# important output;
+Array
+(
+    [0] => a
+    [51] => d
+    [foo] => e
+)
+*/
+
+$atay=[1, 2, 3];
+unset($atay[0], $atay[1], $atay[2]);
+print_r($atay);                 //Array()
+
+$avay=[1, 2, 3];
+unset($avay[0], $avay[1], $avay[2]);
+$avay[]=4;
+print_r($avay);
+/*
+# important output;
+Array
+(
+    [3] => 4
+)
+*/
+
+$x=5;
+var_dump((array) $x);       //array(1) {[0]=>int(5)}
+
+$y='foo';
+var_dump((array) $y);       //array(1) {[0]=>string(3)"foo"}
+
+$z=null;
+var_dump((array) $z);       //array(0) {}
+
+$sarray=['a'=>1, 'b'=>null];
+var_dump(array_key_exists('a', $sarray));   //bool(true)
+var_dump(isset($sarray['a']));              //bool(true)
+var_dump(array_key_exists('b', $sarray));   //bool(true)
+var_dump(isset($sarray['b']));              //bool(false)
+?>
