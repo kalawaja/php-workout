@@ -12,18 +12,36 @@
 Note:
 Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
 */
+?>
 
-function averageStudent($classPoints, $yourPoint) {
-  // Addition the points the class
-  $sum = array_sum($classPoints);
-  // Count the points in the class
-  $count = count($classPoints);
-  // Find the class average
-  $average = $sum / $count;
-  // Compare the average to your point
-  return $yourPoint > $average;
-}
-// Print the comparison result
-echo averageStudent([2, 3, 5, 4, 1, 3], 3) ? "true" : "false";  // false
-echo "<br>";
-echo averageStudent([2, 3, 5, 4, 1, 3], 4) ? "true" : "false";  // true
+<html>
+  <body>
+    <form action="average-student.php" method="post">
+      <label for="points">Enter your points:</label>
+      <input type="text" name="points" id="points">
+      <input type="submit" value="Submit">
+    </form>
+    <?php
+    // if has an input submit
+    if (isset($_POST['points'])) {
+      $points = $_POST['points'];
+      // array of points
+      $pointsArray = [70, 80, 55, 40, 95];
+      // add points to array
+      array_push($pointsArray, $points);
+      // calculate average
+      $average = array_sum($pointsArray) / count($pointsArray);
+      // if points are greater than average
+      if ($points > $average) {
+        echo "Class average: <strong>$average</strong>. <br>
+        You are better than the average student. <br>
+        <strong>Congratulations!</strong> 👍";
+      } else {
+        echo "Class average: <strong>$average</strong>. <br>
+        You are not better than the average student. <br>
+        <strong>Never give up!</strong> 👊";
+      }
+    }
+    ?>
+  </body>
+</html>
