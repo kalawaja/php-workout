@@ -95,3 +95,22 @@ Your points are not included in the array of your class's points. For calculatin
     ?>
   </body>
 </html>
+
+<?php
+/*
+# average-student with pure PHP
+
+$pointsArray = [70, 80, 55, 40, 95];
+array_push($pointsArray, 60);
+$average = array_sum($pointsArray) / count($pointsArray);
+if (60 > $average) {
+  echo "Class average: $average. <br>
+        You are better than the average student. <br>
+        Congratulations! 👍";
+} else {
+  echo "Class average: $average. <br>
+        You are not better than the average student. <br>
+        Never give up! 👊";
+}
+*/
+?>
