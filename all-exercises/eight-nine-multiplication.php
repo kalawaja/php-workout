@@ -74,8 +74,8 @@
 </html>
 
 <?php
-# eight-nine-multiplication.php
-
+/*
+# Solution 1 with pure php
 function simpleMultiplication($number) {
     if ($number % 2 == 0) {
         return $number * 8;
@@ -87,4 +87,18 @@ function simpleMultiplication($number) {
 # Test
 echo simpleMultiplication(2);
 echo simpleMultiplication(3);
+*/
+?>
+
+<?php
+/*
+# Solution 2 with ternary operator
+function simpleMultiplication($number) {
+    return $number % 2 == 0 ? $number * 8 : $number * 9;
+}
+
+# Test
+echo simpleMultiplication(2);
+echo simpleMultiplication(3);
+*/
 ?>
